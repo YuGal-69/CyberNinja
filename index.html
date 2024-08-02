@@ -10,14 +10,15 @@
     <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
   </head>
   <body>
-    <header>
-        <nav class="navbar navbar-expand-lg bg-dark p-0 m-0 fixed-top">
+    <header class="header-wrapper">
+        <nav class="navbar navbar-expand-lg p-0 m-0">
           <div class="container-fluid">
             <a class="navbar-brand ms-2" href="#">
               <img src="assets/images/logo.png" class="img-fluid" alt="CyberNinja Logo" style="max-width: 70px;"><span class="text-white">Cyber</span><span class="text-danger">Ninja</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+              <!-- <span class="navbar-toggler-icon"></span> -->
+              <i class="fa-solid fa-bars-staggered"></i>
             </button>
             <div class="collapse navbar-collapse justify-content-evenly" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
@@ -50,75 +51,67 @@
            </div>
           </div>
         </nav>
-
-    </header>
-
-    <main>
-      <section style="height: 95vh;" class="position-relative overflow-hidden hero-section">
-        <div class="container">
-          <div class="row align-items-center justify-content-center">
-            <div class="col-12 position-absolute" style="top: 30%;left: 5%;">
-              <h2 class="text-white" style="font-size: 4rem;">Hack the Game,<br>Secure the World!</h2>
-              <p class="fs-6" style="color: #bcbbbb;">Enter a realm where every game teaches you the secrets of cyber security.<br>Compete, learn, and protect the digital universe. Log in and let the games begin!</p>
-            </div>
-            
-            <div class="col-12 position-absolute" style="bottom: 10%;left: 5%;">
-              <div class="d-flex mt-5">
-                <button class="btn btn-outline-success me-3">Tain your team</button>
-                <button class="btn btn-success">Join for FREE</button>
+        <!-- video section  -->
+        <div style="height: 95vh;background-color: #0b121f;" class="position-relative overflow-hidden hero-section">
+          <video autoplay loop muted plays-inline class="back-video d-none d-lg-block" src="assets/images/video.mp4" type="video/mp4" style="width: 100%;height: fit-content">
+          </video>
+          <div class="container-fluid position-absolute top-0 start-0 wrapper h-100">
+            <div class="row align-items-center justify-content-center h-100">
+              <div class="col-10">
+                <div class="mb-5">
+                  <h2 class="text-white" style="font-size: 4rem;">Hack the Game,<br>Secure the World!</h2>
+                  <p class="fs-6" style="color: #A4B1CD;">Enter a realm where every game teaches you the secrets of cyber security.<br>Compete, learn, and protect the digital universe. Log in and let the games begin!</p>
+                </div>
+                <div>
+                  <a href="#" class="main-btn me-3">Tain your team</a>
+                  <a href="#" class="main-btn fill-btn">Join for FREE</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        </div>
-        <video autoplay loop muted plays-inline class="back-video d-none d-lg-block" src="assets/images/video.mp4" type="video/mp4" style="width: 100%;height:fit-content;">
-        </video>
-      </section>
 
-      <section style="background-color: #0b121f; color: #9FEF00;">
-        <div> 
-          <body>
-            <div class="container py-5">
-              <div class="row">
-                <div class="col-md-12">
-                  <h1 class="fw-semibold fs-2 mb-4">Gamified, hands-on upskilling from cybersecurity fundamentals to advanced scenarios</h1>
-                  <button class="btn btn-primary">Get started ></button>
-                  <button class="btn btn-primary">For teams ></button>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-4  my-4">
-                  <div class="card p-3 h-100">
-                    <h2>Learning Paths</h2>
-                  <p> Fully guided journeys into a wide range of skills or proficiency in specific security job-roles.</p>
-                  <img src="assets/images/image.png" class="img-fluid" alt="...">
-                  </div>
-                </div>
-                <div class="col-md-4 my-4">
-                  <div class="card p-3 h-100">
-                    <h2>Real-world Scenarios</h2>
-                    <p>Cutting-edge labs focusing on the latest technologies and attack vectors - released every week!</p>
-                    <img src="assets/images/image copy.png" class="img-fluid" alt="...">
-                  </div>
-                </div>
-                <div class="col-md-4 my-4">
-                  <div class="card p-3 h-100">
-                    <h2>Industry Certifications</h2>
-                    <p>Innovative courses and exams that will make a market-ready professional out of you!</p>
-                    <img src="assets/images/image copy 2.png" class="img-fluid" alt="">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12 py-5">
-                  <h2>Guided Mode Enabled</h2>
-                </div>
+    </header>
+
+    <main>
+      <section class="card-wrapper wrapper">
+        <div class="container">
+          <div class="row gy-4">
+            <div class="col-md-12 mb-3">
+              <h2 class="mb-4">Gamified, hands-on upskilling from cybersecurity fundamentals to advanced scenarios</h2>
+              <a class="main-btn me-3">Get started <i class="fa-solid fa-angle-right"></i></a>
+              <a class="main-btn fill-btn">For teams</a>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card p-3 h-100 ">
+                <h2>Learning Paths</h2>
+              <p> Fully guided journeys into a wide range of skills or proficiency in specific security job-roles.</p>
+              <img src="assets/images/image.png" class="img-fluid" alt="...">
               </div>
             </div>
-            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-          </body>
-          </html>
+            <div class="col-md-4">
+              <div class="card p-3 h-100">
+                <h2>Real-world Scenarios</h2>
+                <p>Cutting-edge labs focusing on the latest technologies and attack vectors - released every week!</p>
+                <img src="assets/images/image copy.png" class="img-fluid" alt="...">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card p-3 h-100">
+                <h2>Industry Certifications</h2>
+                <p>Innovative courses and exams that will make a market-ready professional out of you!</p>
+                <img src="assets/images/image copy 2.png" class="img-fluid" alt="...">
+              </div>
+            </div>
+
+          <div class="row">
+            <div class="col-md-12 py-5">
+              <h2>Guided Mode Enabled</h2>
+              <a href="#" class="main-btn">hello</a>
+            </div>
+          </div>
+        </div>
         </div>
       </section>
 
@@ -135,5 +128,6 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
   </body>
 </html>
