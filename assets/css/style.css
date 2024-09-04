@@ -31,6 +31,7 @@ body{
 }
 a{
     text-decoration: none;
+    font-family: var(--primary-font);
 }
 ::-webkit-scrollbar{
     width: 0.275rem;
@@ -164,6 +165,8 @@ p{
 .header-wrapper .nav-item .nav-link.active{
     color: var(--primary-text);
 }
+
+
 .navbar.header-scrolled{
     position: fixed;
     top: 0;
@@ -254,7 +257,342 @@ p{
     h5{
         font-size: 1.25rem;
     }
+    .card-header, .card-body {
+        text-align: center;
+      }
+    
+      .badge-card {
+        margin-bottom: 20px;
+      }
 }
 @media screen and (max-width:360px){
 
+}
+
+/* Custom Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: url('/assets/images/gaming-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #0b121f;
+}
+
+.header-wrapper {
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-brand span {
+    font-size: 1.8rem;
+    color: #0ff;
+}
+
+.navbar-brand span.text-danger {
+    color: yellowgreen;
+}
+
+.sidebar {
+    height: 100vh;
+    padding-top: 20px;
+    background-color: rgba(0, 0, 0, 0.9);
+    box-shadow: inset 0 0 10px #0ff;
+}
+
+.sidebar .nav-link {
+    font-size: 1.1rem;
+    padding: 15px 20px;
+    color: #fff;
+}
+
+.sidebar .nav-link.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.list-group-item {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid #007bff;
+    color: #fff;
+}
+
+.list-group-item:hover {
+    background-color: #007bff;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.progress-bar {
+    background-color: #00ff00;
+    box-shadow: 0 0 10px #00ff00;
+    transition: width 0.5s ease-in-out;
+}
+
+@media (max-width: 767px) {
+    .sidebar {
+        height: auto;
+        padding: 0;
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 250px;
+        z-index: 1000;
+        background-color: rgba(0, 0, 0, 0.95);
+        transition: left 0.3s ease-in-out;
+    }
+
+    .sidebar.show {
+        left: 0;
+    }
+
+    #sidebarToggle {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 1100;
+    }
+
+    .container-fluid {
+        padding-left: 0;
+    }
+}
+
+/* Glowing Effect on Hover */
+.nav-link:hover, .btn:hover {
+    text-shadow: 0 0 10px #00ff00;
+}
+
+.navbar-brand img {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#learn-dr-menu {
+    display: none;
+}
+
+#dr-item:hover #learn-dr-menu{
+    display: block;
+}
+
+/* General Body Styles */
+body.gaming-theme {
+    background-color: #1e1e2e; /* Dark background for gaming feel */
+    color: #fff; /* Light text for contrast */
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Navbar Styles */
+.navbar-brand {
+    font-weight: bold;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #ddd;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #fff;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    background-color: #2c2c3e;
+    height: 100vh;
+}
+
+.sidebar .nav-link {
+    color: #ddd;
+}
+
+.sidebar .nav-link.active {
+    background-color: #3a3a4e;
+    color: #fff;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #3a3a4e;
+    color: #fff;
+}
+
+/* Card and Gaming Elements */
+.card {
+    background-color: #333; /* Darker card background */
+    color: #fff; /* Light text for readability */
+    border-radius: 8px;
+    border: none;
+}
+
+.card-header {
+    font-weight: bold;
+}
+
+.card-body {
+    background-color: #444; /* Slightly lighter background */
+}
+
+.progress-bar {
+    background-color: yellow; /* Red progress bar for gaming look */
+}
+
+.game-card {
+    background-color: #444;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.game-card img {
+    border-radius: 8px;
+    border: 2px solid #222; /* Add border for game images */
+}
+
+user profile dropdown
+/* styles.css */
+
+/* Customize the dropdown button */
+.btn-secondary {
+    background-color: #4CAF50; /* Custom background color */
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #45a049; /* Custom hover color */
+}
+
+/* Customize the dropdown menu */
+.dropdown-menu {
+    min-width: 200px; /* Adjust width as needed */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Customize the dropdown items */
+.dropdown-item {
+    color: #333; /* Custom text color */
+}
+
+.dropdown-item:hover {
+    background-color: #f1f1f1; /* Custom hover background */
+}
+
+/* update mng acc */
+/* styles.css */
+
+/* General text color for dark background */
+body, .navbar, .dropdown-menu, .card-header, .card-body, .navbar-brand span {
+    color: #f0f0f0; /* Light color for text */
+}
+
+/* Custom button styles for better contrast */
+.btn-secondary {
+    background-color: #343a40; /* Dark gray for better contrast */
+    color: #f0f0f0; /* Light color for text */
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #495057; /* Slightly lighter on hover */
+    color: #fff; /* White text */
+}
+
+/* Navbar adjustments for visibility */
+.navbar-dark .navbar-nav .nav-link {
+    color: #f0f0f0; /* Light color for text */
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: rgb(from color r g b); /* Hover color for links */
+}
+
+/* Card styles */
+.card-header {
+    background-color: #1c2331; /* Dark background */
+    color: #f0f0f0; /* Light text */
+}
+
+.card-body {
+    background-color: #2f3e54; /* Slightly lighter dark background */
+    color: #f0f0f0; /* Light text */
+}
+
+/* Progress bar customization */
+.progress-bar {
+    background-color: whitesmoke; /* Bright color for progress bar */
+}
+
+/* Dropdown menu styling */
+.dropdown-menu {
+    background-color: #1c2331; /* Dark background for dropdown */
+    color: #f0f0f0; /* Light text color */
+}
+
+.dropdown-item:hover {
+    background-color: #495057; /* Darker background on hover */
+    color: #fff; /* White text */
+}
+
+/* Sidebar customization */
+.sidebar {
+    background-color: #1c2331; /* Dark background */
+    color: #f0f0f0; /* Light text */
+}
+
+.sidebar .nav-link {
+    color: #f0f0f0; /* Light text */
+}
+
+.sidebar .nav-link:hover {
+    color: whitesmoke; /* Highlight color on hover */
+}
+
+body {
+    background-color: #0b121f; /* Dark background color */
+    color: #ffffff; /* White text color for better contrast */
+    font-family: 'Courier New', Courier, monospace; /* Monospace font for hacker theme */
+}
+
+.card {
+    background-color: #1c2331; /* Slightly lighter background for cards */
+    color: #ffffff; /* White text color for cards */
+    border: 1px solid #00ff00; /* Green border for hacker theme */
+}
+
+.card-header {
+    background-color: #003300; /* Dark green background for the header */
+    color: #00ff00; /* Green text color for the header */
+}
+
+.form-control {
+    background-color: #0b121f; /* Dark background for inputs */
+    color: #ffffff; /* White text color for inputs */
+    border: 1px solid #00ff00; /* Green border for inputs */
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(0, 255, 0, 0.25); /* Green focus shadow for inputs */
+}
+
+.navbar {
+    background-color: #003300; /* Dark green background for navbar */
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: #00ff00; /* Green text color for navbar links */
+}
+
+.navbar-nav .nav-link.active {
+    color: #ffffff; /* White text color for active navbar link */
 }

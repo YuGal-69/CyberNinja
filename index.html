@@ -10,8 +10,8 @@
     <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
   </head>
   <body>
-    <header class="header-wrapper">
-        <nav class="navbar navbar-expand-lg p-0 m-0">
+     <header class="header-wrapper">
+        <nav class="navbar navbar-expand-lg p-0 m-0 fixed-top">
           <div class="container-fluid">
             <a class="navbar-brand ms-2" href="#">
               <img src="assets/images/logo.png" class="img-fluid" alt="CyberNinja Logo" style="max-width: 70px;"><span class="text-white">Cyber</span><span class="text-danger">Ninja</span>
@@ -22,9 +22,22 @@
             </button>
             <div class="collapse navbar-collapse justify-content-evenly" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
-                 <li class="nav-item active me-4">
-                    <a class="nav-link" href="#">Learn <span class="sr-only">(current)</span></a>
+                 <li class="nav-item active me-4 position-relative " id="dr-item">
+                    <a class="nav-link" href="#">Learn <span class="sr-only">(current)</span> 
+                    </a>
+
+                    <div class="position-absolute" id="learn-dr-menu" style="top: 60px;">
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">An item</li>
+                        <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">A fourth item</li>
+                        <li class="list-group-item">And a fifth one</li>
+                      </ul>
+                    </div>
+                    
                  </li>
+                 
                  <li class="nav-item me-4">
                     <a class="nav-link" href="#">Compete</a>
                  </li>
