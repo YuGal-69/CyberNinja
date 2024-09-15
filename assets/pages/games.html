@@ -11,9 +11,9 @@
   <!-- FontAwesome for icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/project/assets/css/style.css">
   <!-- Favicon -->
-  <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="/project/assets/images/logo.png" type="image/x-icon">
 </head>
 <body class="gaming-theme" style="background-color: #0b121f;">
 
@@ -21,9 +21,14 @@
   <header class="header-wrapper">
     <nav class="navbar navbar-expand-lg p-0 m-0 fixed-top navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand ms-2" href="#">
-          <img src="/assets/images/logo.png" class="img-fluid" alt="CyberNinja" style="max-width: 70px;">
-          <span class="ms-2 fw-bold">CyberNinja</span>
+        <a class="navbar-brand ms-2" href="/index.html">
+          <img
+            src="/project/assets/images/logo.png"
+            class="img-fluid"
+            alt="CyberNinja Logo"
+            style="max-width: 70px"
+          /><span class="text-white">Cyber</span
+          ><span class="text-danger">Ninja</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -31,13 +36,13 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="/project/assets/pages/dashboard.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Features</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
+              <a class="nav-link" href="/project/assets/pages/pricing.html">Pricing</a>
             </li>
             <li class="nav-item dropdown me-2">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -62,31 +67,31 @@
         <div class="position-sticky">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link" href="/assets/pages/dashboard.html">
+              <a class="nav-link" href="/project/assets/pages/dashboard.html">
                 <i class="fas fa-home"></i>
                 Dashboard
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/assets/pages/view_profile.html">
+              <a class="nav-link" href="/project/assets/pages/view_profile.html">
                 <i class="fas fa-user"></i>
                 Profile
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="/assets/pages/games.html">
+              <a class="nav-link active" href="/project/assets/pages/games.html">
                 <i class="fas fa-gamepad"></i>
                 Games
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="/project/assets/pages/achivment.html">
                 <i class="fas fa-trophy"></i>
                 Achievements
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/assets/pages/setting.html">
+              <a class="nav-link" href="/project/assets/pages/setting.html">
                 <i class="fas fa-cogs"></i>
                 Settings
               </a>
@@ -102,33 +107,33 @@
           <!-- Game Card 1 -->
           <div class="col-md-4">
             <div class="card mb-4">
-              <img src="https://example.com/image1.jpg" class="card-img-top" alt="Game 1">
+              <img src="/project/assets/images/quizimg.jpg" class="card-img-top" alt="Game 1">
               <div class="card-body">
                 <h5 class="card-title">Cybersecurity Challenge Game 1</h5>
                 <p class="card-text">Test your skills with this cybersecurity challenge. Perfect for beginners and experts alike!</p>
-                <a href="https://example.com/game1" class="btn btn-primary" target="_blank">Play Now</a>
+                <a href="/project/assets/pages/pass.html" class="btn btn-primary" target="_blank">Play Now</a>
               </div>
             </div>
           </div>
           <!-- Game Card 2 -->
           <div class="col-md-4">
             <div class="card mb-4">
-              <img src="https://example.com/image2.jpg" class="card-img-top" alt="Game 2">
+              <img src="/project/assets/images/download.jpg" class="card-img-top" alt="Game 2">
               <div class="card-body">
                 <h5 class="card-title">Cyber Attack Simulator</h5>
                 <p class="card-text">Learn how to defend against cyber attacks in a simulated environment. Hone your defensive skills!</p>
-                <a href="https://example.com/game2" class="btn btn-primary" target="_blank">Play Now</a>
+                <a href="/project/assets/pages/simulat.html" class="btn btn-primary" target="_blank">Play Now</a>
               </div>
             </div>
           </div>
           <!-- Game Card 3 -->
           <div class="col-md-4">
             <div class="card mb-4">
-              <img src="https://example.com/image3.jpg" class="card-img-top" alt="Game 3">
+              <img src="/project/assets/images/game2.jpg" class="card-img-top" alt="Game 3">
               <div class="card-body">
                 <h5 class="card-title">Phishing Detection Game</h5>
                 <p class="card-text">Can you spot the phishing emails? Test your ability to detect and prevent phishing attacks.</p>
-                <a href="https://example.com/game3" class="btn btn-primary" target="_blank">Play Now</a>
+                <a href="/project/assets/pages/phish.html" class="btn btn-primary" target="_blank">Play Now</a>
               </div>
             </div>
           </div>
@@ -136,6 +141,13 @@
       </div>
     </div>
   </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+      <div class="container">
+        <p class="mb-0">&copy; 2024 CyberNinja. All Rights Reserved.</p>
+      </div>
+    </footer>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

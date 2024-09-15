@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Cracking Challenge</title>
+  <!-- Include Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/project/assets/css/style.css">
+  <link rel="stylesheet" href="/project/assets/js/script.js">
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: #33ff33;
+      font-family: 'Fira Code', monospace;
+      padding-top: 70px; /* Prevents overlap of navbar */
+    }
+
+    .container {
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    .hint {
+      color: #ffcc00;
+    }
+
+    .result {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    .input-section {
+      margin-top: 20px;
+    }
+
+    input[type="text"] {
+      background-color: #333333;
+      color: #33ff33;
+      border: 1px solid #00cc66;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .btn {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #33ff33;
+      color: #1a1a1a;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #00cc66;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header and Navbar -->
+  <header class="header-wrapper">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand ms-2" href="/index.html">
+          <img src="/project/assets/images/logo.png" class="img-fluid" alt="CyberNinja Logo" style="max-width: 70px" />
+          <span class="text-white">Cyber</span><span class="text-danger">Ninja</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item dropdown me-2">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="/project/assets/images/Avtar.jpg" style="width: 40px;height: 40px;" class="rounded-circle me-2" alt="avatar" />Profile
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="/project/assets/pages/view_profile.html">View Profile</a></li>
+                <li><a class="dropdown-item" href="/project/assets/pages/manage_profile.html">Manage Account</a></li>
+                <li><a class="dropdown-item" href="/project/assets/pages/setting.html">Settings</a></li>
+                <li><a class="dropdown-item" href="/index.html">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Password Cracking Challenge Section -->
+  <div class="container">
+    <h1>Password Cracking Challenge</h1>
+    <p>Can you guess the weak password based on the policy and hints?</p>
+
+    <div class="input-section">
+      <input type="text" id="passwordInput" placeholder="Enter password guess">
+      <button class="btn" onclick="checkPassword()">Submit Guess</button>
+    </div>
+
+    <div id="hintSection" class="hint"></div>
+    <div id="resultSection" class="result"></div>
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    const weakPassword = "password123"; // Example weak password
+    let attempts = 0;
+    const hints = [
+      "Hint 1: The password contains 8-12 characters.",
+      "Hint 2: It includes numbers.",
+      "Hint 3: It contains a common word.",
+      "Hint 4: It's something many users mistakenly think is secure.",
+    ];
+
+    function checkPassword() {
+      const userGuess = document.getElementById("passwordInput").value;
+      attempts++;
+
+      if (userGuess === weakPassword) {
+        document.getElementById("resultSection").textContent = `Success! You cracked the password in ${attempts} attempt(s).`;
+        document.getElementById("hintSection").textContent = "";
+      } else {
+        document.getElementById("resultSection").textContent = "Incorrect password. Try again.";
+        if (attempts <= hints.length) {
+          document.getElementById("hintSection").textContent = hints[attempts - 1];
+        } else {
+          document.getElementById("hintSection").textContent = "No more hints available.";
+        }
+      }
+    }
+  </script>
+
+  <!-- Include Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

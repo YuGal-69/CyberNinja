@@ -596,3 +596,21 @@ body {
 .navbar-nav .nav-link.active {
     color: #ffffff; /* White text color for active navbar link */
 }
+
+
+
+.quiz-section {
+    background-color: #1c1f2b;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  
+  .quiz-section button {
+    margin-top: 10px;
+  }
+  
+  .text-white {
+    color: white;
+  }
+  

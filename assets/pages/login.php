@@ -1,9 +1,12 @@
 <?php
+// Start output buffering to handle header redirection later
+ob_start();
+
 // Database connection parameters
-$servername = "localhost"; // Update with your server details
-$username = "cyberninja"; // Update with your MySQL username
-$password = "Yugal@#12"; // Update with your MySQL password
-$dbname = "cyberninja"; // Update with your database name
+$servername = "localhost"; 
+$username = "cyberninja"; 
+$password = "Yugal@#12"; 
+$dbname = "cyberninja";
 
 session_start(); // Start the session
 
@@ -18,7 +21,7 @@ if ($conn->connect_error) {
 // Sanitize and validate the form data
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    $userPasswordInput = $_POST['password']; // User's input
+    $userPasswordInput = $_POST['password'];
 
     // Validate email
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -33,7 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->store_result();
 
         if ($stmt->num_rows > 0) {
-            // Bind result variables
             $stmt->bind_result($username, $hashedPassword);
             $stmt->fetch();
 
@@ -41,10 +43,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (password_verify($userPasswordInput, $hashedPassword)){
                 // Password is correct, initiate session
                 $_SESSION['username'] = $username;
-                echo "Login successful. Welcome, " . $username . "!";
-                // Redirect to a dashboard or home page
+
+                // Redirect to PHP dashboard to handle sessions
                 header("Location: dashboard.html");
-    exit(); // Ensure no further code is executed after redirection
+                exit(); 
             } else {
                 echo "Incorrect password.";
             }
@@ -59,4 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // Close the connection
 $conn->close();
+
+// End output buffering and flush the output
+ob_end_flush();
 ?>

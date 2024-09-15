@@ -20,11 +20,11 @@
       rel="stylesheet"
     />
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/project/assets/css/style.css" />
     <!-- Favicon -->
     <link
       rel="shortcut icon"
-      href="assets/images/logo.png"
+      href="/project/assets/images/logo.png"
       type="image/x-icon"
     />
     <style>
@@ -35,9 +35,7 @@
   </head>
   <body class="gaming-theme" style="background-color: #0b121f">
     <!-- Sidebar Toggle Button for Mobile -->
-    <button class="btn btn-primary d-md-none" id="sidebarToggle">
-      <i class="fas fa-bars"></i>
-    </button>
+
 
     <!-- Header and Navbar -->
     <header class="header-wrapper">
@@ -45,9 +43,9 @@
         class="navbar navbar-expand-lg p-0 m-0 fixed-top navbar-dark bg-dark"
       >
         <div class="container-fluid">
-          <a class="navbar-brand ms-2" href="#">
+          <a class="navbar-brand ms-2" href="/index.html">
             <img
-              src="/assets/images/logo.png"
+              src="/project/assets/images/logo.png"
               class="img-fluid"
               alt="CyberNinja Logo"
               style="max-width: 70px"
@@ -105,7 +103,7 @@
                 <a class="nav-link" href="#">Features</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
+                <a class="nav-link" href="/project/assets/pages/pricing.html">Pricing</a>
               </li>
               <li class="nav-item dropdown me-2">
                 <a
@@ -117,7 +115,7 @@
                   aria-expanded="false" style="margin-top: -6px;margin-left: -10px;"
                 >
                   <img
-                    src="/assets/images/Avtar.jpg"
+                    src="/project/assets/images/Avtar.jpg"
                     style="width: 40px;height: 40px;"
                     class="rounded-circle me-2"
                     alt="avatar"
@@ -130,18 +128,18 @@
                   <li>
                     <a
                       class="dropdown-item"
-                      href="/assets/pages/view_profile.html"
+                      href="/project/assets/pages/view_profile.html"
                       >View Profile</a
                     >
                   </li>
                   <li>
                     <a
                       class="dropdown-item"
-                      href="/assets/pages/manage_profile.html"
+                      href="/project/assets/pages/edit_profile.html"
                       >Manage Account</a
                     >
                   </li>
-                  <li><a class="dropdown-item" href="/assets/pages/setting.html">Settings</a></li>
+                  <li><a class="dropdown-item" href="/project/assets/pages/setting.html">Settings</a></li>
                   <li><a class="dropdown-item" href="/index.html">Logout</a></li>
                 </ul>
               </li>
@@ -159,31 +157,31 @@
           <div class="position-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/assets/pages/dashboard.html">
+                <a class="nav-link active" aria-current="page" href="/project/assets/pages/dashboard.html">
                   <i class="fas fa-home"></i>
                   Dashboard
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/assets/pages/view_profile.html">
+                <a class="nav-link" href="/project/assets/pages/view_profile.html">
                   <i class="fas fa-user"></i>
                   Profile
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/assets/pages/games.html">
+                <a class="nav-link" href="/project/assets/pages/games.html">
                   <i class="fas fa-gamepad"></i>
                   Games
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/project/assets/pages/achivment.html">
                   <i class="fas fa-trophy"></i>
                   Achievements
                </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/assets/pages/setting.html">
+                <a class="nav-link" href="/project/assets/pages/setting.html">
                   <i class="fas fa-cogs"></i>
                   Settings
                 </a>
@@ -193,14 +191,20 @@
         </nav>
 
         <!-- Main Content Area -->
+      
+
         <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-          <!-- Global Search Bar -->
-          <div class="input-group my-3">
-            <input type="text" class="form-control" placeholder="Search..." />
-            <button class="btn btn-outline-secondary" type="button">
-              <i class="fas fa-search"></i>
-            </button>
+          <div class="row justify-content-end">
+            <div class="col-5">
+              <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+
+            </div>
           </div>
+          <!-- Global Search Bar -->
+         
 
           <!-- Welcome and Stats Cards -->
           <div class="row pt-3">
@@ -347,7 +351,7 @@
                 <div class="card-body bg-light">
                   <p>
                     If you have any questions or need support, please visit our
-                    <a href="/assets/pages/help.html">Help Center</a> or contact
+                    <a href="/project/assets/pages/help.html">Help Center</a> or contact
                     us at
                     <a href="mailto:support@cyberninja.com"
                       >support@cyberninja.com</a
