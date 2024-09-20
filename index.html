@@ -20,6 +20,81 @@
       href="/project/assets/images/logo.png"
       type="image/x-icon"
     />
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        background-color: #0b121f;
+        color: #fff;
+        scroll-behavior: smooth;
+      }
+      .header-wrapper {
+        position: relative;
+        z-index: 2;
+      }
+      nav.navbar {
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(5px);
+      }
+      nav .nav-link {
+        font-size: 1.1rem;
+        transition: color 0.3s;
+      }
+      /* nav .nav-link:hover {
+        color: #ff5c5c !important;
+      } */
+      .hero-section h2 {
+        font-size: 3.5rem;
+        letter-spacing: 2px;
+      }
+      /* .main-btn {
+        background-color: #ff5c5c;
+        padding: 12px 24px;
+        border-radius: 5px;
+        color: #fff;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+        font-weight: bold;
+      } */
+      /* .main-btn.fill-btn {
+        background-color: #fff;
+        color: #ff5c5c;
+      } */
+      /* .main-btn:hover {
+        background-color: #000000;
+        transform: translateY(-3px);
+      } */
+      /* .card-wrapper h2 {
+        color: #ff5c5c;
+      } */
+      .card {
+        background-color: #1e2a3a;
+        border: none;
+        transition: transform 0.3s ease;
+      }
+      .card:hover {
+        transform: translateY(-10px);
+      }
+      footer {
+        background-color: #151a24;
+      }
+      /* footer .social-icon {
+        color: #ff5c5c;
+        font-size: 1.5rem;
+        margin: 0 10px;
+      } */
+      .back-to-top {
+        position: fixed;
+        bottom: 40px;
+        right: 20px;
+        display: none;
+        z-index: 99;
+      }
+      .back-to-top i {
+        font-size: 2rem;
+        color: #00ff00;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
     <header class="header-wrapper">
@@ -43,7 +118,6 @@
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <!-- <span class="navbar-toggler-icon"></span> -->
             <i class="fa-solid fa-bars-staggered"></i>
           </button>
           <div
@@ -51,26 +125,9 @@
             id="navbarSupportedContent"
           >
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item active me-4 position-relative" id="dr-item">
-                <a class="nav-link" href="#"
-                  >Learn <span class="sr-only">(current)</span>
-                </a>
-
-                <div
-                  class="position-absolute"
-                  id="learn-dr-menu"
-                  style="top: 60px"
-                >
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">And a fifth one</li>
-                  </ul>
-                </div>
+              <li class="nav-item me-4">
+                <a class="nav-link" href="#learn-section">Learn</a>
               </li>
-
               <li class="nav-item me-4">
                 <a class="nav-link" href="#">Compete</a>
               </li>
@@ -88,8 +145,8 @@
             <ul class="navbar-nav m-auto">
               <li class="nav-item">
                 <a
-                  class="nav-link me-4"
-                  href="/project/assets/pages/login.html"
+                  class="nav-link me-4" 
+                  href="/project/assets/pages/login.html" 
                   target="_self"
                   >Login</a
                 >
@@ -101,7 +158,7 @@
           </div>
         </div>
       </nav>
-      <!-- video section  -->
+
       <div
         style="height: 95vh; background-color: #0b121f"
         class="position-relative overflow-hidden hero-section"
@@ -120,19 +177,19 @@
           class="container-fluid position-absolute top-0 start-0 wrapper h-100"
         >
           <div class="row align-items-center justify-content-center h-100">
-            <div class="col-10">
+            <div class="col-10 text-center">
               <div class="mb-5">
-                <h2 class="text-white" style="font-size: 4rem">
+                <h2 class="text-white">
                   Hack the Game,<br />Secure the World!
                 </h2>
-                <p class="fs-6" style="color: #a4b1cd">
-                  Enter a realm where every game teaches you the secrets of
-                  cyber security.<br />Compete, learn, and protect the digital
+                <p class="fs-6" style="color: #8db1ff">
+                  Enter a realm where every game teaches the secrets of
+                  cybersecurity.<br />Compete, learn, and protect the digital
                   universe. Log in and let the games begin!
                 </p>
               </div>
               <div>
-                <a href="#" class="main-btn me-3">Tain your team</a>
+                <a href="#" class="main-btn me-3">Train your team</a>
                 <a href="#" class="main-btn fill-btn">Join for FREE</a>
               </div>
             </div>
@@ -142,13 +199,78 @@
     </header>
 
     <main>
-      <section class="card-wrapper wrapper">
+      <section id="testimonials" class="py-5 bg-#0b121f text-white">
+        <div class="container text-center">
+          <h2 class="mb-4">What People Say</h2>
+          <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <blockquote class="blockquote">
+                  <p class="mb-4">"CyberNinja transformed my skills. The labs are so interactive and fun!"</p>
+                  <footer class="blockquote-footer text-light">Jane Doe, Security Analyst</footer>
+                </blockquote>
+              </div>
+              <div class="carousel-item">
+                <blockquote class="blockquote">
+                  <p class="mb-4">"The hands-on approach really helped me understand complex concepts."</p>
+                  <footer class="blockquote-footer text-light">John Smith, Pentester</footer>
+                </blockquote>
+              </div>
+              <div class="carousel-item">
+                <blockquote class="blockquote">
+                  <p class="mb-4">"This platform made learning cybersecurity exciting!"</p>
+                  <footer class="blockquote-footer text-light">Emily White, Developer</footer>
+                </blockquote>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="countdown" class="py-5 text-center bg-#0b121f text-white">
+        <p class="mb-4 text-white fs-3">Next Cybersecurity Competition Starts In:</p>
+        <div id="timer" class="display-4 text-danger"></div>
+      </section>
+      
+      <script>
+        // Countdown timer script
+        const targetDate = new Date("2024-12-31T00:00:00").getTime();
+        const timer = document.getElementById('timer');
+      
+        setInterval(() => {
+          const now = new Date().getTime();
+          const distance = targetDate - now;
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+          timer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      
+          if (distance < 0) {
+            timer.innerHTML = "Event Started!";
+          }
+        }, 1000);
+      </script>
+      
+      
+      
+      
+      <section class="card-wrapper wrapper py-5" id="learn-section">
         <div class="container">
           <div class="row gy-4">
-            <div class="col-md-12 mb-3">
+            <div class="col-md-12 mb-3 text-center">
               <h2 class="mb-4">
-                Gamified, hands-on upskilling from cybersecurity fundamentals to
-                advanced scenarios
+                Gamified, hands-on upskilling from fundamentals to advanced
+                scenarios
               </h2>
               <a class="main-btn me-3"
                 >Get started <i class="fa-solid fa-angle-right"></i
@@ -166,7 +288,7 @@
                 <img
                   src="/project/assets/images/image.png"
                   class="img-fluid"
-                  alt="..."
+                  alt="Learning Paths"
                 />
               </div>
             </div>
@@ -180,7 +302,7 @@
                 <img
                   src="/project/assets/images/image copy.png"
                   class="img-fluid"
-                  alt="..."
+                  alt="Real-world Scenarios"
                 />
               </div>
             </div>
@@ -194,26 +316,81 @@
                 <img
                   src="/project/assets/images/image copy 2.png"
                   class="img-fluid"
-                  alt="..."
+                  alt="Industry Certifications"
                 />
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-12 py-5">
-                <h2>Guided Mode Enabled</h2>
-                <a href="#" class="main-btn">hello</a>
               </div>
             </div>
           </div>
         </div>
       </section>
+      <section id="faq" class="py-5 bg-#0b121f">
+        <div class="container">
+          <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+          <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="faq1">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1">
+                  What is CyberNinja?
+                </button>
+              </h2>
+              <div id="faqCollapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  CyberNinja is a gamified cybersecurity learning platform for learners and professionals.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="faq2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2">
+                  How do I get started?
+                </button>
+              </h2>
+              <div id="faqCollapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Sign up for free and access a range of cybersecurity games and labs to start learning!
+                </div>
+              </div>
+            </div>
+            <!-- Add more FAQs as needed -->
+          </div>
+        </div>
+      </section>
+     
+      
+      
     </main>
 
-        <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-3">
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+      
+      <section id="newsletter" class="py-2 text-center bg-dark text-white">
+        <h3 class="mb-4">Subscribe to our Newsletter</h2>
+        <form>
+          <div class="input-group w-50 mx-auto">
+            <input type="email" class="form-control" placeholder="Enter your email" required>
+            <button class="btn btn-danger" type="submit">Subscribe</button>
+          </div>
+        </form>
+      </section>
+      
       <div class="container">
         <p class="mb-0">&copy; 2024 CyberNinja. All Rights Reserved.</p>
+        <div class="mt-3">
+          <a href="#" class="social-icon">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a href="#" class="social-icon">
+            <i class="fa-brands fa-twitter"></i>
+          </a>
+          <a href="#" class="social-icon">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+        </div>
       </div>
     </footer>
 
@@ -222,6 +399,31 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script src="/project/assets/js/script.js"></script>
+
+    <script>
+      // Smooth scroll to sections
+      // document.querySelectorAll('a.nav-link').forEach(anchor => {
+      //   anchor.addEventListener('click', function (e) {
+      //     e.preventDefault();
+      //     document.querySelector(this.getAttribute('href')).scrollIntoView({
+      //       behavior: 'smooth'
+      //     });
+      //   });
+      // });
+
+      // Back to top button
+      const backToTop = document.getElementById('backToTop');
+      window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+          backToTop.style.display = 'block';
+        } else {
+          backToTop.style.display = 'none';
+        }
+      };
+      backToTop.addEventListener('click', function () {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      });
+    </script>
   </body>
 </html>

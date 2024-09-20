@@ -310,6 +310,26 @@ p, label, .form-check-label {
     });
   </script>
   <script src="/project/assets/js/script.js"></script>
+  <script>
+    // Fetch data from PHP script
+    fetch('/project/assets/php/fetch_data.php')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        // You can now use this data to populate your dashboard
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  </script>
+<div id="user-score"></div>
+
+<script>
+fetch('/project/assets/php/fetch_data.php')
+  .then(response => response.json())
+  .then(data => {
+    // Assuming data[0] contains the first user's data
+    document.getElementById('user-score').innerText = `Your Score: ${data[0].score} pts`;
+  });
+</script>
 </body>
 
 </html>
