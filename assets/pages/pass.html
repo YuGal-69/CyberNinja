@@ -66,7 +66,7 @@
   <header class="header-wrapper">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container-fluid">
-        <a class="navbar-brand ms-2" href="/index.html">
+        <a class="navbar-brand ms-2" href="/project/index.html">
           <img src="/project/assets/images/logo.png" class="img-fluid" alt="CyberNinja Logo" style="max-width: 70px" />
           <span class="text-white">Cyber</span><span class="text-danger">Ninja</span>
         </a>
@@ -76,13 +76,13 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+              <a class="nav-link active" aria-current="page" href="/project/index.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Features</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
+              <a class="nav-link" href="/project/assets/pages/pricing.html">Pricing</a>
             </li>
             <li class="nav-item dropdown me-2">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -92,7 +92,7 @@
                 <li><a class="dropdown-item" href="/project/assets/pages/view_profile.html">View Profile</a></li>
                 <li><a class="dropdown-item" href="/project/assets/pages/manage_profile.html">Manage Account</a></li>
                 <li><a class="dropdown-item" href="/project/assets/pages/setting.html">Settings</a></li>
-                <li><a class="dropdown-item" href="/index.html">Logout</a></li>
+                <li><a class="dropdown-item" href="/project/index.html">Logout</a></li>
               </ul>
             </li>
           </ul>
@@ -146,6 +146,26 @@
 
   <!-- Include Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Fetch data from PHP script
+    fetch('/project/assets/php/fetch_data.php')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        // You can now use this data to populate your dashboard
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  </script>
+<div id="user-score"></div>
+
+<script>
+fetch('/project/assets/php/fetch_data.php')
+  .then(response => response.json())
+  .then(data => {
+    // Assuming data[0] contains the first user's data
+    document.getElementById('user-score').innerText = `Your Score: ${data[0].score} pts`;
+  });
+</script>
 </body>
 
 </html>
