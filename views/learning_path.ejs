@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Learning Roadmap</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0b121f; /* Set the background color to #0b121f */
+            color: #ffffff; /* Set the default text color to white for readability */
+        }
+        .card {
+            background-color: #1c2331; /* Set card background to a slightly lighter color for contrast */
+            color: #ffffff; /* Set card text color to white */
+        }
+        .card-header {
+            color: #ffffff; /* Ensure header text is white */
+        }
+    </style>
+</head>
+<body>
+    
+
+<div class="container mt-5">
+    <!-- Introduction Section -->
+    <div class="row">
+        <div class="col text-center">
+            <h1 class="text-white">Cybersecurity Learning Roadmap</h1>
+            <p class="lead text-white">Start your journey in cybersecurity with our guided roadmap.</p>
+        </div>
+    </div>
+
+    <!-- AI-Driven Learning Path Form -->
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header bg-info">
+                    <h4>Personalized Learning Path</h4>
+                </div>
+                <div class="card-body">
+                    <form id="learning-form" method="POST" action="/learning-path">
+                        <div class="mb-3">
+                            <label for="topics" class="form-label">Learning Topics</label>
+                            <input type="text" class="form-control" id="topics" name="topics" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="learningStyle" class="form-label">Preferred Learning Style</label>
+                            <select class="form-select" id="learningStyle" name="learningStyle" required>
+                                <option value="quizzes">Quizzes</option>
+                                <option value="videos">Videos</option>
+                                <option value="articles">Articles</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="timeAvailability" class="form-label">Time Availability (hours per week)</label>
+                            <input type="number" class="form-control" id="timeAvailability" name="timeAvailability" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chatbox -->
+    <div class="chat-container mb-2" style="width: 500px;">
+        <div id="chatbox" class="chatbox p-3 rounded">
+            <div id="messages" class="messages"></div>
+            <form id="chat-form" class="d-flex mt-2">
+                <input type="text" id="user-input" class="form-control me-2" placeholder="Type your message..." autocomplete="off" required />
+                <button id="submitButton" type="button" class="btn btn-primary">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Roadmap Sections -->
+    <div class="row mt-4">
+        <!-- Introduction to Cybersecurity -->
+        <div class="col-md-6">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header bg-primary">
+                    <h4>1. Introduction to Cybersecurity</h4>
+                </div>
+                <div class="card-body">
+                    <p>Get familiar with the basics of cybersecurity, its importance, and key concepts.</p>
+                    <ul>
+                        <li>Basic Terminologies</li>
+                        <li>Understanding Threats and Vulnerabilities</li>
+                        <li>Overview of Cybersecurity Domains</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Beginner Challenges -->
+        <div class="col-md-6">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header bg-secondary">
+                    <h4>2. Beginner Challenges</h4>
+                </div>
+                <div class="card-body">
+                    <p>Start with fundamental cybersecurity challenges to build your skills.</p>
+                    <ul>
+                        <li>Simple Capture the Flag (CTF) challenges</li>
+                        <li>Basic exercises on encryption and decryption</li>
+                        <li>Introduction to basic tools like Nmap and Wireshark</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Intermediate Learning and Challenges -->
+        <div class="col-md-6">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header bg-success">
+                    <h4>3. Intermediate Learning and Challenges</h4>
+                </div>
+                <div class="card-body">
+                    <p>Enhance your knowledge with more complex scenarios and tools.</p>
+                    <ul>
+                        <li>In-depth network security challenges</li>
+                        <li>Web application security fundamentals</li>
+                        <li>Intermediate CTF challenges</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Specialization Paths -->
+        <div class="col-md-6">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header bg-warning text-dark">
+                    <h4>4. Specialization Paths</h4>
+                </div>
+                <div class="card-body">
+                    <p>Choose a path that aligns with your career goals and interests.</p>
+                    <ul>
+                        <li>Penetration Testing</li>
+                        <li>Defensive Security</li>
+                        <li>Web Application Security</li>
+                        <li>Cryptography</li>
+                        <li>Network Security</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Advanced Challenges and Real-world Simulations -->
+        <div class="col-md-6">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header bg-danger">
+                    <h4>5. Advanced Challenges and Real-world Simulations</h4>
+                </div>
+                <div class="card-body">
+                    <p>Prepare for real-world scenarios with advanced challenges and simulations.</p>
+                    <ul>
+                        <li>Simulated environments that mimic real-world security breaches</li>
+                        <li>Advanced CTF challenges</li>
+                        <li>Red team vs. Blue team exercises</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certification Preparation -->
+        <div class="col-md-6">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header bg-info">
+                    <h4>6. Certification Preparation</h4>
+                </div>
+                <div class="card-body">
+                    <p>Get ready for professional certifications with our guided resources.</p>
+                    <ul>
+                        <li>Study guides and resources</li>
+                        <li>Practice exams and quizzes</li>
+                        <li>Tips from certified professionals</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Community and Collaboration -->
+        <div class="col-md-6">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header bg-dark">
+                    <h4>7. Community and Collaboration</h4>
+                </div>
+                <div class="card-body">
+                    <p>Join the community, share knowledge, and collaborate with others.</p>
+                    <ul>
+                        <li>Forums and discussion boards</li>
+                        <li>Leaderboards and achievements</li>
+                        <li>Group challenges and hackathons</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Continuous Learning and Updates -->
+        <div class="col-md-6">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header bg-light text-dark">
+                    <h4>8. Continuous Learning and Updates</h4>
+                </div>
+                <div class="card-body">
+                    <p>Stay updated with the latest trends and threats in cybersecurity.</p>
+                    <ul>
+                        <li>Regularly updated blog posts and articles</li>
+                        <li>Webinars and expert talks</li>
+                        <li>Latest news and trends in cybersecurity</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Feedback and Progress Tracking -->
+        <div class="col-md-12">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header bg-secondary">
+                    <h4>9. Feedback and Progress Tracking</h4>
+                </div>
+                <div class="card-body">
+                    <p>Track your progress and provide feedback to improve the platform.</p>
+                    <ul>
+                        <li>Personal dashboard for tracking completed challenges</li>
+                        <li>Feedback forms for user suggestions</li>
+                        <li>Analytics to show user engagement and progression</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="/script.js"></script>
+</body>
+</html>
