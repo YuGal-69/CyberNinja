@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber Attack Simulator</title>
+  
+  <!-- Bootstrap CSS Link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-mQ93q0w+KSMiTnTbMnJIG1UHP+L/ZWFkOgg7f67G5/oGH7B4w1p6UBJ0ANFXNLA" crossorigin="anonymous">
+
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/project/assets/css/style.css?v=1.0">
+
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: #33ff33;
+      font-family: 'Fira Code', monospace;
+      padding-top: 100px; /* Adjusted padding to make space for navbar */
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .attack-simulator {
+      background-color: #333;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00cc66;
+    }
+
+    .attack-title {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #ffcc00;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background-color: #33ff33;
+      color: #1a1a1a;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    .btn:hover {
+      background-color: #00cc66;
+    }
+
+  
+    .navbar {
+    background-color: #000 !important;
+}
+
+  </style>
+</head>
+
+<body>
+
+   
+  <div class="container">
+    <h1>Cyber Attack Simulator</h1>
+    <p>Learn how to defend against cyber attacks in a simulated environment. Hone your defensive skills!</p>
+
+    <div class="attack-simulator">
+      <h2 class="attack-title" id="attackTitle">SQL Injection Detected!</h2>
+      <p>Choose the correct defense technique:</p>
+      <button class="btn" onclick="selectDefense(1)">A. Input Validation</button>
+      <button class="btn" onclick="selectDefense(2)">B. Disable Ports</button>
+      <button class="btn" onclick="selectDefense(3)">C. Encrypt Data</button>
+
+      <div class="result" id="result"></div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76A3f9c9PjYjmy5BU6zN0XNxknOGzT+Km3F6Kp4UhsDJvQ0sH2y5zR30+OC0mwy" crossorigin="anonymous"></script>
+
+  <script>
+    // Array of attack scenarios
+    const attacks = [
+      {
+        title: "SQL Injection Detected!",
+        correctDefense: 1, // Correct answer: Input Validation
+        explanation: "SQL Injection attacks can be prevented by using input validation and parameterized queries."
+      },
+      {
+        title: "DDoS Attack Incoming!",
+        correctDefense: 2, // Correct answer: Disable Ports
+        explanation: "Defending against DDoS attacks requires techniques like disabling unnecessary ports and rate limiting."
+      },
+      {
+        title: "Man-in-the-Middle Attack Detected!",
+        correctDefense: 3, // Correct answer: Encrypt Data
+        explanation: "To prevent man-in-the-middle attacks, encrypt sensitive communications using TLS/SSL."
+      }
+    ];
+
+    let currentAttack = 0;
+
+    function selectDefense(option) {
+      const resultElement = document.getElementById("result");
+
+      // Check if the selected defense is correct
+      if (option === attacks[currentAttack].correctDefense) {
+        resultElement.textContent = "Correct! " + attacks[currentAttack].explanation;
+        resultElement.style.color = "green";
+      } else {
+        resultElement.textContent = "Incorrect. " + attacks[currentAttack].explanation;
+        resultElement.style.color = "red";
+      }
+
+      // Move to the next attack after a delay
+      setTimeout(nextAttack, 3000);
+    }
+
+    function nextAttack() {
+      currentAttack++;
+      if (currentAttack < attacks.length) {
+        document.getElementById("attackTitle").textContent = attacks[currentAttack].title;
+        document.getElementById("result").textContent = "";
+      } else {
+        document.getElementById("attackTitle").textContent = "You've completed the simulation!";
+        document.getElementById("result").textContent = "";
+      }
+    }
+  </script>
+<script>
+  // Fetch data from PHP script
+  fetch('/project/assets/php/fetch_data.php')
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      // You can now use this data to populate your dashboard
+    })
+    .catch(error => console.error('Error fetching data:', error));
+</script>
+<div id="user-score"></div>
+
+<script>
+fetch('/project/assets/php/fetch_data.php')
+.then(response => response.json())
+.then(data => {
+  // Assuming data[0] contains the first user's data
+  document.getElementById('user-score').innerText = `Your Score: ${data[0].score} pts`;
+});
+</script>
+</body>
+
+</html>

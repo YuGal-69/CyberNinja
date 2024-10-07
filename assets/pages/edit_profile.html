@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacker Profile</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/project/assets/css/style.css">
+  <style>
+    body {
+      background-color: #0b121f; /* Dark background */
+      color: #00ff00; /* Green text color for hacker theme */
+      font-family: 'Courier New', Courier, monospace; /* Monospace font for hacker look */
+    }
+    .profile-container {
+      background-color: #1c2331; /* Slightly lighter background for the profile card */
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      border: 2px solid #00ff00; /* Green border for profile picture */
+    }
+    .btn-primary {
+      background-color: #00ff00; /* Green button background */
+      border-color: #00ff00; /* Green button border */
+      color: #0b121f; /* Dark text color for button */
+    }
+    .btn-primary:hover {
+      background-color: #1c2331; /* Hover effect for button */
+      color: #00ff00; /* Green text color for button hover */
+    }
+    .edit-form {
+      display: none; /* Hide form initially */
+      margin-top: 20px;
+    }
+    .form-control, .form-label {
+      background-color: #0b121f; /* Dark background for input fields */
+      color: #00ff00; /* Green text color for input fields */
+      border-color: #00ff00; /* Green border for input fields */
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="profile-container mx-auto">
+      <img src="/project/assets/images/Avtar.jpg" alt="Profile Picture" class="profile-img">
+      <h2 id="profile-name">CodeBreaker</h2>
+      <p id="profile-email">Email: codebreaker@hackernet.com</p>
+      <p id="profile-bio">Bio: Cybersecurity enthusiast, ethical hacker, and penetration tester. Passionate about breaking into systems to make the digital world a safer place.</p>
+      <button class="btn btn-primary mt-3" id="editProfileBtn">Edit Profile</button>
+
+      <!-- Edit Profile Form -->
+      <form class="edit-form" id="editProfileForm">
+        <div class="mb-3">
+          <label for="editName" class="form-label">Name</label>
+          <input type="text" class="form-control" id="editName" value="CodeBreaker">
+        </div>
+        <div class="mb-3">
+          <label for="editEmail" class="form-label">Email</label>
+          <input type="email" class="form-control" id="editEmail" value="codebreaker@hackernet.com">
+        </div>
+        <div class="mb-3">
+          <label for="editBio" class="form-label">Bio</label>
+          <textarea class="form-control" id="editBio" rows="3">Cybersecurity enthusiast, ethical hacker, and penetration tester. Passionate about breaking into systems to make the digital world a safer place.</textarea>
+        </div>
+        <button type="button" class="btn btn-primary" id="saveChangesBtn">Save Changes</button>
+      </form>
+    </div>
+  </div>
+  
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // JavaScript to toggle the edit form and save changes
+    document.getElementById('editProfileBtn').addEventListener('click', function() {
+      document.getElementById('editProfileForm').style.display = 'block'; // Show the form
+    });
+
+    document.getElementById('saveChangesBtn').addEventListener('click', function() {
+      // Get updated values
+      const newName = document.getElementById('editName').value;
+      const newEmail = document.getElementById('editEmail').value;
+      const newBio = document.getElementById('editBio').value;
+
+      // Update the profile display
+      document.getElementById('profile-name').textContent = newName;
+      document.getElementById('profile-email').textContent = 'Email: ' + newEmail;
+      document.getElementById('profile-bio').textContent = newBio;
+
+      // Hide the edit form
+      document.getElementById('editProfileForm').style.display = 'none';
+    });
+  </script>
+</body>
+</html>

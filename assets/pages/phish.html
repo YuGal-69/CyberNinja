@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cybersecurity Quiz - CyberNinja</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts (Monospace font for hacker theme) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap">
+  <!-- Custom CSS for Hacker Theme -->
+   <link rel="stylesheet" href="/project/assets/css/style.css">
+  <style>
+    body {
+      background-color: #0b121f;
+      color: #00ff00;
+      font-family: 'Fira Code', monospace;
+    }
+
+    .btn-primary, .btn-success {
+      background-color: #00ff00;
+      border: none;
+      color: #0b121f;
+      font-weight: bold;
+    }
+
+    .btn-primary:hover,
+    .btn-success:hover {
+      background-color: #00cc00;
+    }
+
+    .text-muted {
+      color: #999999;
+    }
+
+    .quiz-section,
+    .theory-section {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #00ff00;
+      border-radius: 5px;
+    }
+
+    .form-check-label {
+      color: #00ff00;
+    }
+
+    label.form-label {
+      font-weight: bold;
+      color: #00ff00;
+    }
+
+    .mb-3 {
+      border: 1px solid #00ff00;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .result {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .achievement {
+      font-size: 1.2rem;
+      color: #00ff00;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    h2, h4 {
+      border-bottom: 2px solid #00ff00;
+      padding-bottom: 5px;
+    }
+
+    /* Collapsible Sections */
+    .collapsible {
+      background-color: #0b121f;
+      color: #00ff00;
+      cursor: pointer;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 1.2rem;
+      transition: 0.4s;
+    }
+
+    .collapsible:hover {
+      background-color: #1b2b3f;
+    }
+
+    .collapsible.active, .collapsible:after {
+      font-weight: bold;
+    }
+
+    .content {
+      padding: 0 18px;
+      display: none;
+      overflow: hidden;
+      background-color: #0f1627;
+      margin-bottom: 10px;
+    }
+    body {
+  background-color: #1a1a1a; /* Dark gray */
+  color: #33ff33; /* Softer green */
+  font-family: 'Fira Code', monospace;
+}
+h2, h3, h4, h5, h6 {
+  color: #66ff66; /* Light green for headings */
+}
+.btn-primary, .btn-success {
+  background-color: #33ff33; /* Softer green for buttons */
+  border: none;
+  color: #1a1a1a;
+  font-weight: bold;
+}
+.btn-primary:hover, .btn-success:hover {
+  background-color: #00cc66; /* Slightly darker on hover */
+}
+.text-muted {
+  color: #999999;
+}
+p, label, .form-check-label {
+  color: #cccccc; /* Light gray for body text */
+}
+
+  </style>
+  <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+</head>
+
+<body>
+   <!-- Header and Navbar -->
+   <header class="header-wrapper">
+    <nav class="navbar navbar-expand-lg p-0 m-0 fixed-top navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand ms-2" href="#">
+          <img src="/project/assets/images/logo.png" class="img-fluid" alt="CyberNinja" style="max-width: 70px;">
+          <span class="ms-2 fw-bold">CyberNinja</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item dropdown me-2">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Profile
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" href="#">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- Theory Section -->
+  <div id="theory-phishing" class="theory-section container " style="margin-top: 100px;">
+    <h2 class="#00ff00">Understanding Phishing</h2>
+
+    <button class="collapsible">What is Phishing?</button>
+    <div class="content">
+      <p>
+        Phishing is a form of cyberattack where attackers impersonate legitimate entities (such as banks, social media platforms, or trusted companies) to steal sensitive information, like usernames, passwords, credit card numbers, and other personal details.
+      </p>
+    </div>
+
+    <button class="collapsible">How Phishing Works</button>
+    <div class="content">
+      <p>
+        Phishing relies on social engineering—tricking users into divulging sensitive information. The attacker masquerades as a trustworthy entity and often creates a sense of urgency or fear to manipulate the victim into taking an action, such as clicking a malicious link, downloading malware, or sharing personal information.
+      </p>
+    </div>
+
+    <button class="collapsible">Common Types of Phishing Attacks</button>
+    <div class="content">
+      <p>
+        <strong>Email Phishing:</strong> The most common form of phishing, attackers send fraudulent emails from reputable sources.<br>
+        <strong>Spear Phishing:</strong> A targeted attack focusing on individuals or organizations.<br>
+        <strong>Smishing:</strong> Phishing via SMS.<br>
+        <strong>Vishing:</strong> Phishing via voice calls.<br>
+        <strong>Clone Phishing:</strong> Attackers copy legitimate emails but replace links.<br>
+        <strong>Whaling:</strong> Targeting high-profile individuals.
+      </p>
+    </div>
+
+    <button class="collapsible">How to Recognize Phishing</button>
+    <div class="content">
+      <ul>
+        <li>Suspicious email addresses</li>
+        <li>Generic greetings</li>
+        <li>Urgent language pressuring action</li>
+        <li>Suspicious links or attachments</li>
+      </ul>
+    </div>
+
+    <button class="collapsible">How to Protect Yourself</button>
+    <div class="content">
+      <p>
+        Be skeptical of unexpected emails, check URLs, use two-factor authentication, update your software regularly, and report phishing attempts.
+      </p>
+    </div>
+
+    <button class="btn btn-primary mt-3" onclick="redirectToQuiz('phishing')">Take the Quiz</button>
+  </div>
+
+  <!-- Quiz Section (Initially hidden) -->
+  <div id="quiz-section" class="quiz-section container" style="display: none;">
+    <h3 class="text-white">Phishing Quiz</h3>
+    <form id="quiz-form">
+      <div id="question-container">
+        <!-- Questions will be dynamically injected here -->
+      </div>
+      <button type="button" class="btn btn-success mt-3" onclick="submitQuiz()">Submit Quiz</button>
+    </form>
+    <div id="quiz-result" class="result text-white"></div>
+    <div id="quiz-achievement" class="achievement text-white"></div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function redirectToQuiz(topic) {
+      document.getElementById('theory-phishing').style.display = 'none';
+      document.getElementById('quiz-section').style.display = 'block';
+      startQuiz(topic);
+    }
+
+    let currentTopic = '';
+    let questions = {};
+
+    function startQuiz(topic) {
+      currentTopic = topic;
+      questions = {
+        phishing: [
+          { question: "1. What is phishing?", options: ["A virus", "Social engineering", "Malware", "Firewall"], correctAnswer: 1, explanation: "Phishing is a form of social engineering aimed at obtaining sensitive information." },
+          { question: "2. What is the main goal of phishing attacks?", options: ["Steal information", "Install malware", "Track location", "None of the above"], correctAnswer: 0, explanation: "The primary goal is to steal sensitive information." },
+          { question: "3. Which type targets high-profile individuals?", options: ["Spear phishing", "Whaling", "Clone phishing", "Vishing"], correctAnswer: 1, explanation: "Whaling targets high-profile individuals." },
+          { question: "4. What is 'vishing'?", options: ["Voice phishing", "Video phishing", "Virtual phishing", "Visual phishing"], correctAnswer: 0, explanation: "Vishing refers to phishing over the telephone." },
+          { question: "5. How can you protect yourself?", options: ["Ignore emails", "Use 2FA", "Click all links", "Share info openly"], correctAnswer: 1, explanation: "Using two-factor authentication adds extra security." }
+        ]
+      };
+
+      const questionContainer = document.getElementById('question-container');
+      questionContainer.innerHTML = ''; 
+
+      questions[topic].forEach((q, index) => {
+        const questionHtml = `
+          <div class="mb-3">
+            <label class="form-label">${q.question}</label>
+            ${q.options.map((option, i) => `
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="question${index}" value="${i}" id="question${index}_${i}">
+                <label class="form-check-label" for="question${index}_${i}">${option}</label>
+              </div>`).join('')}
+          </div>`;
+        questionContainer.insertAdjacentHTML('beforeend', questionHtml);
+      });
+    }
+
+    function submitQuiz() {
+      const quizResult = document.getElementById('quiz-result');
+      const quizAchievement = document.getElementById('quiz-achievement');
+      let score = 0;
+
+      questions[currentTopic].forEach((q, index) => {
+        const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
+        if (selectedOption && parseInt(selectedOption.value) === q.correctAnswer) {
+          score++;
+        }
+      });
+
+      quizResult.textContent = `You scored ${score}/${questions[currentTopic].length}!`;
+      if (score === questions[currentTopic].length) {
+        quizAchievement.textContent = "Achievement Unlocked: Phishing Master!";
+      } else if (score >= (questions[currentTopic].length / 2)) {
+        quizAchievement.textContent = "Achievement Unlocked: Phishing Pro!";
+      } else {
+        quizAchievement.textContent = "Keep learning! Practice makes perfect.";
+      }
+    }
+
+    document.querySelectorAll('.collapsible').forEach(button => {
+      button.addEventListener('click', function () {
+        this.classList.toggle('active');
+        const content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    });
+  </script>
+  <script src="/project/assets/js/script.js"></script>
+  <script>
+    // Fetch data from PHP script
+    fetch('/project/assets/php/fetch_data.php')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        // You can now use this data to populate your dashboard
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  </script>
+<div id="user-score"></div>
+
+<script>
+fetch('/project/assets/php/fetch_data.php')
+  .then(response => response.json())
+  .then(data => {
+    // Assuming data[0] contains the first user's data
+    document.getElementById('user-score').innerText = `Your Score: ${data[0].score} pts`;
+  });
+</script>
+</body>
+
+</html>
