@@ -44,3 +44,25 @@ document
     // Clear input field
     document.getElementById("user-input").value = "";
   });
+
+function checkPassword1() {
+  console.log("hhhh");
+  const userGuess = document.getElementById("passwordInput").value;
+  attempts++;
+
+  if (userGuess === weakPassword) {
+    document.getElementById(
+      "resultSection"
+    ).textContent = `Success! You cracked the password in ${attempts} attempt(s).`;
+    document.getElementById("hintSection").textContent = "";
+  } else {
+    document.getElementById("resultSection").textContent =
+      "Incorrect password. Try again.";
+    if (attempts <= hints.length) {
+      document.getElementById("hintSection").textContent = hints[attempts - 1];
+    } else {
+      document.getElementById("hintSection").textContent =
+        "No more hints available.";
+    }
+  }
+}

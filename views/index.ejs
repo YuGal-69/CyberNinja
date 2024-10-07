@@ -21,7 +21,7 @@
       body {
         font-family: "Arial", sans-serif;
         background-color: #0b121f;
-        color: #fff;
+        color: #9b2525;
         scroll-behavior: smooth;
       }
       .header-wrapper {
@@ -62,6 +62,32 @@
         font-size: 2rem;
         color: #00ff00;
         cursor: pointer;
+      }
+
+      .ninaa-assistant img {
+        width: 43px;
+        height: 43px;
+      }
+      .ninaa-assistant {
+        border: 6px solid #75b740;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        border-radius: 50%;
+        z-index: 10;
+        cursor: pointer;
+      }
+      .ninaa-hover {
+        font-size: 14px;
+        position: fixed;
+        bottom: 25px;
+        right: 93px;
+        color: #141414;
+        font-weight: 400;
+        background-color: #fff;
+        z-index: 10;
+        letter-spacing: 1.1px;
+        border-radius: 5px;
       }
     </style>
   </head>
@@ -107,7 +133,7 @@
                 <a class="nav-link" href="#">For Business</a>
               </li>
               <li class="nav-item me-4">
-                <a class="nav-link" href="#">Pricing</a>
+                <a class="nav-link" href="pricing">Pricing</a>
               </li>
             </ul>
 
@@ -154,7 +180,7 @@
               </div>
               <div>
                 <a href="#" class="main-btn me-3">Train your team</a>
-                <a href="#" class="main-btn fill-btn">Join for FREE</a>
+                <a href="signup" class="main-btn fill-btn">Join for FREE</a>
               </div>
             </div>
           </div>
@@ -163,13 +189,19 @@
     </header>
 
     <main>
-      <section id="testimonials" class="py-5 bg-#0b121f text-white">
+      <section
+        id="testimonials"
+        class="py-5"
+        style="background-color: #0b121f; color: white"
+      >
         <div class="container text-center">
           <h2 class="mb-4">What People Say</h2>
           <div
             id="testimonialCarousel"
             class="carousel slide"
             data-bs-ride="carousel"
+            data-bs-interval="5000"
+            data-bs-pause="false"
           >
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -210,189 +242,155 @@
               type="button"
               data-bs-target="#testimonialCarousel"
               data-bs-slide="prev"
+              aria-label="Previous"
             >
               <span
                 class="carousel-control-prev-icon"
                 aria-hidden="true"
               ></span>
-              <span class="visually-hidden">Previous</span>
             </button>
             <button
               class="carousel-control-next"
               type="button"
               data-bs-target="#testimonialCarousel"
               data-bs-slide="next"
+              aria-label="Next"
             >
               <span
                 class="carousel-control-next-icon"
                 aria-hidden="true"
               ></span>
-              <span class="visually-hidden">Next</span>
             </button>
           </div>
         </div>
       </section>
 
-      <section id="countdown" class="py-5 text-center bg-#0b121f text-white">
-        <p class="mb-4 text-white fs-3">
-          Next Cybersecurity Competition Starts In:
-        </p>
-        <div id="timer" class="display-4 text-danger"></div>
-      </section>
-
-      <section class="card-wrapper wrapper py-5" id="learn-section">
+      <!-- CARD SECTION -->
+      <section
+        id="features"
+        class="py-5 text-center"
+        style="background-color: #0d1524"
+      >
         <div class="container">
-          <div class="row gy-4">
-            <div class="col-md-12 mb-3 text-center">
-              <h2 class="mb-4">
-                Gamified, hands-on upskilling from fundamentals to advanced
-                scenarios
-              </h2>
-              <a class="main-btn me-3"
-                >Get started <i class="fa-solid fa-angle-right"></i
-              ></a>
-              <a class="main-btn fill-btn">For teams</a>
-            </div>
-
-            <div class="col-md-4">
-              <div class="card p-3 h-100">
-                <h2>Learning Paths</h2>
-                <p>
-                  Fully guided journeys into a wide range of skills or
-                  proficiency in specific security job-roles.
-                </p>
-                <img
-                  src="images/image.png"
-                  class="img-fluid"
-                  alt="Learning Paths"
-                />
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card p-3 h-100">
-                <h2>Real-world Scenarios</h2>
-                <p>
-                  Cutting-edge labs focusing on the latest technologies and
-                  attack vectors - released every week!
-                </p>
-                <img
-                  src="images/image copy.png"
-                  class="img-fluid"
-                  alt="Real-world Scenarios"
-                />
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card p-3 h-100">
-                <h2>Industry Certifications</h2>
-                <p>
-                  Innovative courses and exams that will make a market-ready
-                  professional out of you!
-                </p>
-                <img
-                  src="images/image copy 2.png"
-                  class="img-fluid"
-                  alt="Industry Certifications"
-                />
-              </div>
-            </div>
+          <div class="col-md-12 mb-3 text-center">
+            <h2 class="mb-4">
+              Gamified, hands-on upskilling from fundamentals to advanced
+              scenarios
+            </h2>
+            <a class="main-btn me-3">
+              Get started <i class="fa-solid fa-angle-right"></i>
+            </a>
+            <a class="main-btn fill-btn">For teams</a>
           </div>
-        </div>
-      </section>
-      <section id="faq" class="py-5 bg-#0b121f">
-        <div class="container">
-          <h2 class="text-center mb-4">Frequently Asked Questions</h2>
-          <div class="accordion" id="faqAccordion">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="faq1">
-                <button
-                  class="accordion-button"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#faqCollapse1"
-                >
-                  What is CyberNinja?
-                </button>
-              </h2>
-              <div
-                id="faqCollapse1"
-                class="accordion-collapse collapse show"
-                data-bs-parent="#faqAccordion"
-              >
-                <div class="accordion-body">
-                  CyberNinja is a gamified cybersecurity learning platform for
-                  learners and professionals.
+          <h2 class="text-white mb-4">Explore Our Features</h2>
+          <div class="row g-4">
+            <!-- Card 1 -->
+            <div class="col-md-4">
+              <div class="card p-3 text-white h-100">
+                <img
+                  src="images/Designer.png"
+                  class="card-img-top"
+                  alt="Cybersecurity Tools"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Master Critical Cybersecurity Tools
+                  </h5>
+                  <p class="card-text">
+                    From Metasploit to Wireshark, learn how to navigate the
+                    toolkit of a pro hacker.
+                  </p>
                 </div>
               </div>
             </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="faq2">
-                <button
-                  class="accordion-button collapsed"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#faqCollapse2"
-                >
-                  How do I get started?
-                </button>
-              </h2>
-              <div
-                id="faqCollapse2"
-                class="accordion-collapse collapse"
-                data-bs-parent="#faqAccordion"
-              >
-                <div class="accordion-body">
-                  Sign up for free and access a range of cybersecurity games and
-                  labs to start learning!
+            <!-- Card 2 -->
+            <div class="col-md-4">
+              <div class="card p-3 text-white h-100">
+                <img
+                  src="images/lab.webp"
+                  class="card-img-top"
+                  alt="Attack Strategies"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Simulate Real Attacks</h5>
+                  <p class="card-text">
+                    Engage in red-team vs. blue-team scenarios and live out
+                    real-world attack strategies.
+                  </p>
                 </div>
               </div>
             </div>
-            <!-- Add more FAQs as needed -->
+            <!-- Card 3 -->
+            <div class="col-md-4">
+              <div class="card p-3 text-white h-100">
+                <img
+                  src="images/certificate.webp"
+                  class="card-img-top"
+                  alt="Pathways"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Pathways to Certifications</h5>
+                  <p class="card-text">
+                    Get the prep and training you need for certifications like
+                    CEH, CISSP, and more.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="py-5">
-      <div class="container text-center">
-        <p class="text-white mb-0">© 2024 CyberNinja. All rights reserved.</p>
+    <!-- <div class="ninaa-assistant" id="nina-assistant">
+      <img src="/public/images/game2.jpg" alt="ninaa" />
+    </div> -->
+    <!-- <div class="shadow ninaa-hover" id="nina-hover">
+      <button
+        type="button"
+        id="assistant-close-btn"
+        class="text-start p-1 bg-danger border-0 outline-0 rounded-circle text-white d-flex"
+        style="font-size: 10px; width: 15px; height: 15px"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <p class="px-4">Hey! I am Ninaa... Your<br />Admission assistant.</p>
+    </div> -->
+
+    <footer class="py-4 text-center text-white">
+      <div class="container">
+        <p>&copy; 2024 CyberNinja. All rights reserved.</p>
       </div>
     </footer>
 
-    <a href="#" class="back-to-top"><i class="fa-solid fa-arrow-up"></i></a>
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </a>
 
+    <!-- Bootstrap JS -->
     <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-      integrity="sha384-oBqDVmMz4fnFO9gybDuxFqSYuZmld9a4a18WUbNq0Dmg0vLJ51K9HggpB9wDd4CZ"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-V2Xod7d44xyHHs8RpMeoS43f8M6t8rqLB+xknEUOTLgVoOduKPHKPj7lTzoP9pJF"
       crossorigin="anonymous"
+      defer
     ></script>
+    <!-- Font Awesome -->
     <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-      integrity="sha384-8IlSgCfApw4caD5Jv2E8E0mybKNZECvqDExWthc3w3A7lH0p3wzZ2KwEU5kI3EJm"
-      crossorigin="anonymous"
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js"
+      defer
     ></script>
-    <script src="js/script.js"></script>
+
     <script>
-      // Countdown timer script
-      const targetDate = new Date("2024-12-31T00:00:00").getTime();
-      const timer = document.getElementById("timer");
+      const backToTopButton = document.querySelector(".back-to-top");
 
-      setInterval(() => {
-        const now = new Date().getTime();
-        const distance = targetDate - now;
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor(
-          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        );
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        timer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-        if (distance < 0) {
-          timer.innerHTML = "Event Started!";
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 200) {
+          backToTopButton.style.display = "block";
+        } else {
+          backToTopButton.style.display = "none";
         }
-      }, 1000);
+      });
     </script>
   </body>
 </html>

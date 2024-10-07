@@ -17,82 +17,68 @@
 
   <!-- Custom Styles -->
   <style>
-    
-    /* Sidebar active link */
-    .nav-link.active {
-      background-color: #343a40;
-      border-left: 4px solid #dc3545;
-    }
-
-    /* Hover effects for cards */
-    .card:hover {
-      transform: scale(1.05);
-      transition: 0.3s;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Sidebar link hover effect */
-    .nav-link:hover {
-      background-color: #495057;
-    }
-
-    /* Smooth transitions */
-    .nav-link, .btn, .card {
-      transition: 0.3s ease-in-out;
-    }
-    
-    /* Custom scrollbar */
-    ::-webkit-scrollbar {
-      width: 5px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #495057;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #6c757d;
-    }
-    
     body {
-            background-color: #0b121f;
-            font-family: 'Montserrat', sans-serif;
-        }
-        .navbar-brand span {
-            font-weight: bold;
-        }
-        .sidebar {
-            height: 100vh;
-        }
-        .nav-link.active {
-            background-color: #1c1f2e;
-            border-radius: 8px;
-            color: #fff;
-        }
-        .card {
-            border-radius: 8px;
-        }
-        .card-body {
-            background-color: #1c1f2e;
-            color: #fff;
-        }
-        .card-header {
-            background-color: #1c1f2e;
-            color: #fff;
-        }
-        .btn-primary {
-            background-color: #ff5722;
-            border-color: #ff5722;
-        }
-        .dropdown-menu li a {
-            color: grey;
-        }
-        .dropdown-menu li a:hover {
-            color: white;
-        }
+      background-color: #0b121f;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .navbar-brand span {
+      font-weight: bold;
+    }
+
+    .sidebar {
+      height: 100vh;
+    }
+
+    .nav-link.active {
+      background-color: #1c1f2e;
+      border-radius: 8px;
+      color: #fff;
+    }
+
+    .card {
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-body {
+      background-color: #1c1f2e;
+      color: #fff;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-header {
+      background-color: #1c1f2e;
+      color: #fff;
+    }
+
+    .btn-primary {
+      background-color: #ff5722;
+      border-color: #ff5722;
+    }
+
+    .dropdown-menu li a {
+      color: grey;
+    }
+
+    .dropdown-menu li a:hover {
+      color: white;
+    }
+    
+    .card img {
+      object-fit: cover;
+      height: 180px;
+    }
+    
+    footer {
+      background-color: #1c1f2e;
+    }
   </style>
 </head>
-<body class="gaming-theme" style="background-color: #0b121f;">
+<body class="gaming-theme">
 
   <!-- Header and Navbar -->
   <header class="header-wrapper">
@@ -121,8 +107,8 @@
                 Profile
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li><a class="dropdown-item" href="#">Logout</a></li>
+                <li><a class="dropdown-item" href="/setting">Settings</a></li>
+                <li><a class="dropdown-item" href="/index">Logout</a></li>
               </ul>
             </li>
           </ul>
@@ -145,7 +131,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/view_profile">
+              <a class="nav-link" href="/profile">
                 <i class="fas fa-user"></i>
                 Profile
               </a>
@@ -183,7 +169,7 @@
               <div class="card-body">
                 <h5 class="card-title">Cybersecurity Challenge Game 1</h5>
                 <p class="card-text">Test your skills with this cybersecurity challenge. Perfect for beginners and experts alike!</p>
-                <a href="/password-challenge" class="btn btn-primary" target="_blank">Play Now</a>
+                <a href="/password-challenge" class="btn btn-primary mt-auto" target="_blank">Play Now</a>
               </div>
             </div>
           </div>
@@ -194,7 +180,7 @@
               <div class="card-body">
                 <h5 class="card-title">Cyber Attack Simulator</h5>
                 <p class="card-text">Learn how to defend against cyber attacks in a simulated environment. Hone your defensive skills!</p>
-                <a href="/simulate" class="btn btn-primary" target="_blank">Play Now</a>
+                <a href="/simulate" class="btn btn-primary mt-auto" target="_blank">Play Now</a>
               </div>
             </div>
           </div>
@@ -205,7 +191,7 @@
               <div class="card-body">
                 <h5 class="card-title">Phishing Detection Game</h5>
                 <p class="card-text">Can you spot the phishing emails? Test your ability to detect and prevent phishing attacks.</p>
-                <a href="/phish" class="btn btn-primary" target="_blank">Play Now</a>
+                <a href="/phish" class="btn btn-primary mt-auto" target="_blank">Play Now</a>
               </div>
             </div>
           </div>

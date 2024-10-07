@@ -5,9 +5,9 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const session = require("express-session");
 const helmet = require("helmet");
-const app = express();
 const { getGroqChatCompletion } = require("./groqIntegration.cjs"); // Use .cjs extension
 
+const app = express();
 
 // Middleware
 app.use(helmet()); // Secures HTTP headers
@@ -17,7 +17,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views")); // Set the views directory
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.set("views", "./views");
+
 // Session configuration
 app.use(
   session({
@@ -37,40 +37,29 @@ mongoose
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
-// User schema
+// Define User schema for user data
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   lastLogin: { type: Date },
+  progress: Number,
+  completedQuizzes: Array,
+  personalizedRecommendations: Array,
 });
 
 const User = mongoose.model("User", userSchema);
 
-// Routes
-app.get('/', (req, res) => {
-  res.render('index', { title: 'Cybersecurity Quiz - CyberNinja' });
-});
-
 // Home Route
 app.get("/", (req, res) => {
-  res.render("index", { title: "Home" });
+  res.render("index", { title: "Cybersecurity Quiz - CyberNinja" });
 });
 
-// Signup Route
+// Signup Routes
 app.get("/signup", (req, res) => {
   res.render("signup", { title: "Signup" });
 });
 
-// Dashboard Route
-app.get("/dashboard", (req, res) => {
-  if (!req.session.user) {
-    return res.redirect("/login"); // Redirect to login if not authenticated
-  }
-  res.render("dashboard", { title: "Dashboard", user: req.session.user });
-});
-
-// Signup POST Route
 app.post("/signup", async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -99,12 +88,11 @@ app.post("/signup", async (req, res) => {
   }
 });
 
-// Login Route
+// Login Routes
 app.get("/login", (req, res) => {
   res.render("login", { title: "Login", error: null });
 });
 
-// Login POST Route
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
@@ -145,7 +133,15 @@ app.get("/logout", (req, res) => {
   });
 });
 
-// Profile Route
+// Dashboard Route
+app.get("/dashboard", (req, res) => {
+  if (!req.session.user) {
+    return res.redirect("/login");
+  }
+  res.render("dashboard", { title: "Dashboard", user: req.session.user });
+});
+
+// Profile Routes
 app.get("/profile", async (req, res) => {
   if (!req.session.user) {
     return res.redirect("/login");
@@ -153,7 +149,6 @@ app.get("/profile", async (req, res) => {
 
   try {
     const foundUser = await User.findOne({ email: req.session.user.email });
-
     if (!foundUser) {
       return res.status(404).send("User not found");
     }
@@ -165,21 +160,6 @@ app.get("/profile", async (req, res) => {
   }
 });
 
-
-app.post("/chat", async (req, res) => {
-  const { message } = req.body;
-
-  try {
-    const chatCompletion = await getGroqChatCompletion(message);
-    const responseContent = chatCompletion.choices[0]?.message?.content || "No response from the model.";
-    res.send({ response: responseContent });
-  } catch (error) {
-    console.error("Error in chat endpoint:", error);
-    res.status(500).send("An error occurred while processing the request.");
-  }
-});
-
-// Update Profile Route
 app.post("/update_profile", async (req, res) => {
   try {
     const { username, email } = req.body;
@@ -211,41 +191,97 @@ app.post("/update_profile", async (req, res) => {
   }
 });
 
-// Submit Feedback Route
-app.post("/submit-feedback", (req, res) => {
-  const { name, email, comments } = req.body;
-  console.log("Feedback Received:", { name, email, comments });
-  res.send("Thank you for your feedback!");
+// Chat Route with GroqAI integration
+app.post("/chat", async (req, res) => {
+  const { message } = req.body;
+
+  try {
+    const chatCompletion = await getGroqChatCompletion(message);
+    const responseContent =
+      chatCompletion.choices[0]?.message?.content ||
+      "No response from the model.";
+    res.send({ response: responseContent });
+  } catch (error) {
+    console.error("Error in chat endpoint:", error);
+    res.status(500).send("An error occurred while processing the request.");
+  }
 });
 
-app.get('/simulate', (req, res) => {
-  const title = "Cyber Attack Simulator"; // Set your title here
-  const attacks = [ /* your attack data */ ];
-  res.render('simulate', { title, attacks });
+// Cybersecurity-related routes
+app.get("/games", (req, res) => {
+  res.render("games");
 });
 
+app.get("/pricing", (req, res) => {
+  res.render("pricing");
+});
 
-// GET Route: Render the form or initial page
+app.get("/achievement", (req, res) => {
+  // Example data (you'll need to replace this with actual data from your database)
+  const achievements = [
+    { title: "Cyber Champion", description: "Completed all levels." },
+    { title: "Speed Master", description: "Completed 5 challenges in under 10 minutes." }
+  ];
+
+  const leaderboard = [
+    { username: "cyber_warrior", score: 1500 },
+    { username: "hack_master", score: 1400 },
+    { username: "ninja_coder", score: 1350 }
+  ];
+
+  // Pass the data to the template
+  res.render("achievement", { achievement: achievements, leaderboard: leaderboard });
+});
+
+app.get("/phish", (req, res) => {
+  res.render("phish");
+});
+
+// Password Challenge Route
+app.get("/password-challenge", (req, res) => {
+  const user = req.session.user;
+  const weakPassword = "password123";
+
+  if (!user) {
+    return res.redirect("/login");
+  }
+
+  res.render("password-challenge", { user, weakPassword });
+});
+
+app.post("/password-challenge/submit", (req, res) => {
+  const { passwordGuess } = req.body;
+
+  if (passwordGuess === "password123") {
+    return res.json({
+      success: true,
+      message: "Password cracked successfully!",
+    });
+  } else {
+    return res.json({
+      success: false,
+      message: "Incorrect password. Try again.",
+    });
+  }
+});
+
+// Learning Path Route
 app.get("/learning_path", (req, res) => {
-  res.render("learning_path"); // Render the form page for the learning path
+  res.render("learning_path");
 });
 
-// POST Route: Handle form submission
 app.post("/learning_path", (req, res) => {
   const { topics, learningStyle, timeAvailability } = req.body;
 
-  // Generate recommendations
   const recommendations = generateLearningPath(
     topics,
     learningStyle,
     timeAvailability
   );
 
-  // Render the recommendations page
   res.render("learning_path_results", { recommendations });
 });
 
-// Your learning path generation function
 function generateLearningPath(topics, learningStyle, timeAvailability) {
   let path = [];
 
@@ -266,211 +302,63 @@ function generateLearningPath(topics, learningStyle, timeAvailability) {
   return path;
 }
 
-
-// Games, Profile, and Simulation Routes
-app.get("/games", (req, res) => {
-  res.render("games");
-});
-
-app.get('/update_profile', (req, res) => {
-  // Assume you fetch the profile from the database
-  const profile = {
-    username: "your_username",
-    email: "your_email@example.com"
+app.get('/modules', (req, res) => {
+  const courses = {
+      fundamental: [
+          { title: "Course 1", description: "Introduction to cybersecurity basics" },
+          { title: "Course 2", description: "Understanding network protocols" },
+      ],
+      intermediate: [
+          { title: "Course 3", description: "Advanced networking" },
+          { title: "Course 4", description: "Introduction to penetration testing" },
+      ],
+      advanced: [
+          { title: "Course 5", description: "Exploiting vulnerabilities" },
+          { title: "Course 6", description: "Defensive security strategies" },
+      ],
+      specialized: [
+          { title: "Course 7", description: "Digital forensics" },
+          { title: "Course 8", description: "Incident response techniques" },
+      ],
+      skillDevelopment: [
+          { title: "Course 9", description: "Linux for cybersecurity" },
+          { title: "Course 10", description: "Windows security tools" },
+      ],
+      emerging: [
+          { title: "Course 11", description: "Cybersecurity in AI" },
+          { title: "Course 12", description: "Quantum computing impacts" },
+      ],
+      softSkills: [
+          { title: "Course 13", description: "Effective communication in IT" },
+          { title: "Course 14", description: "Team collaboration techniques" },
+      ],
   };
 
-  res.render('update_profile', { profile });
-});
-
-// Dummy achievements data
-const achievement = [
-  { title: 'Certified Ethical Hacker', description: 'Earned on January 2024' },
-  { title: 'Java Developer', description: 'Completed a Java course in 2024' },
-  { title: 'Penetration Tester', description: 'Internship in Penetration Testing' }
-];
-
-// Define the route for achievement
-app.get('/achievement', (req, res) => {
-  console.log("Achievement route accessed");
-  res.render('achievement');
-});
-
-
-
-// Password Challenge Route
-app.get('/password-challenge', (req, res) => {
-  const user = req.session.user; // Get the authenticated user from the session
-  const weakPassword = 'password123'; // Example weak password
-  
-  if (!user) {
-    return res.redirect('/login'); // Redirect to login if not authenticated
-  }
-
-  res.render('password-challenge', { user, weakPassword }); // Pass the user and weak password to the EJS template
-});
-
-
-
-app.post('/password-challenge/submit', (req, res) => {
-  const { userId, passwordGuess } = req.body;
-
-  if (passwordGuess === 'password123') {
-    return res.json({ success: true, message: 'Password cracked successfully!' });
-  } else {
-    return res.json({ success: false, message: 'Incorrect password. Try again.' });
-  }
-});
-
-
-
-
-
-
-
-// app.get('/simulat', (req, res) => {
-//   res.render('simulat', { title: 'Cyber Attack Simulator', attacks });
-// });
-
-
-app.get("/phish", (req, res) => {
-  res.render("phish");
-});
-
-app.get("/setting", (req, res) => {
-  res.render("setting", {
-    title: "Settings",
-    stylesheet: "/css/style.css",
-    favicon: "/images/favicon.ico",
-    logo: "/images/logo.png",
-  });
-});
-
-// app.get('/simulate', (req, res) => {
-//   res.render('simulat', { title: 'Simulation Page' });
-// });
-
-// Route for the pricing page
-app.get('/pricing', (req, res) => {
-  res.render('pricing');  // Render the EJS file located in 'views/pricing.ejs'
-});
-
-
-app.post("/chat", async (req, res) => {
-  const { message } = req.body; // Get the message from the request body
-
-  try {
-    const chatCompletion = await getGroqChatCompletion(message);
-    const botReply = chatCompletion.choices[0]?.message?.content || "Sorry, I could not generate a response.";
-    
-    res.json({ reply: botReply }); // Send the bot reply as JSON
-  } catch (error) {
-    console.error("Error processing message", error);
-    res.status(500).json({ error: "Sorry, I encountered an error." });
-  }
-});
-
-// Define your courses data (you can also fetch this from a database)
-const courses = {
-  fundamental: [
-      {
-          title: "Introduction to Cybersecurity",
-          description: "Basics of cybersecurity principles, terminology, and key concepts."
-      },
-      {
-          title: "Networking Basics",
-          description: "Understanding computer networks, protocols, and security practices."
-      }
-  ],
-  intermediate: [
-      {
-          title: "Ethical Hacking",
-          description: "Techniques for identifying vulnerabilities and strengthening defenses."
-      },
-      {
-          title: "Cryptography and Encryption",
-          description: "Principles and applications of cryptography in securing communications."
-      },
-      {
-          title: "Web Application Security",
-          description: "Overview of common vulnerabilities and best practices for securing web apps."
-      }
-  ],
-  advanced: [
-      {
-          title: "Incident Response and Forensics",
-          description: "Strategies for responding to cybersecurity incidents."
-      },
-      {
-          title: "Advanced Threat Detection",
-          description: "Techniques for identifying advanced persistent threats."
-      },
-      {
-          title: "Cloud Security",
-          description: "Best practices for securing cloud computing environments."
-      }
-  ],
-  specialized: [
-      {
-          title: "Mobile Security",
-          description: "Security challenges and techniques for mobile devices."
-      },
-      {
-          title: "IoT Security",
-          description: "Overview of security risks and best practices for IoT devices."
-      },
-      {
-          title: "Cybersecurity Compliance and Governance",
-          description: "Understanding legal and regulatory requirements in cybersecurity."
-      }
-  ],
-  skillDevelopment: [
-      {
-          title: "Security+ Certification Prep",
-          description: "Comprehensive preparation for the CompTIA Security+ certification."
-      },
-      {
-          title: "Certified Ethical Hacker (CEH) Exam Prep",
-          description: "In-depth preparation for the CEH certification."
-      },
-      {
-          title: "CISSP Exam Prep",
-          description: "Comprehensive coverage of the CISSP domains."
-      }
-  ],
-  emerging: [
-      {
-          title: "Artificial Intelligence in Cybersecurity",
-          description: "Using AI to enhance security defenses."
-      },
-      {
-          title: "Blockchain Security",
-          description: "Security implications of blockchain technology and smart contracts."
-      },
-      {
-          title: "Quantum Computing and Cybersecurity",
-          description: "Preparing for the impact of quantum computing on cryptography."
-      }
-  ],
-  softSkills: [
-      {
-          title: "Cybersecurity Leadership and Management",
-          description: "Developing leadership skills for managing cybersecurity teams."
-      },
-      {
-          title: "Communication and Collaboration in Cybersecurity",
-          description: "Effective techniques for team collaboration and reporting."
-      }
-  ]
-};
-
-// Define the GET route for modules
-app.get('/modules', (req, res) => {
   res.render('modules', { courses });
 });
 
+app.get('/api/recommendations', (req, res) => {
+  const userProgress = getUserProgress(req.user.id); // Retrieve user's progress (dummy function)
+  const recommendedCourses = aiRecommendCourses(userProgress); // AI-driven course recommendation logic
+  res.json(recommendedCourses);
+});
 
-// Start server
+
+
+// Route for AI-Driven Learning Path
+app.get('/ai-learning-path', (req, res) => {
+  res.render('ai-learning-path'); // Render the EJS file
+});
+
+// Route for the AI Learning Path
+app.get('/start-ai-path', (req, res) => {
+  res.render('start-ai-path'); // This should match the name of your EJS file
+});
+
+
+
+// Start the server
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`Server started on http://localhost:${PORT}`);
 });

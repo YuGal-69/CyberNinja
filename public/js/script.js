@@ -285,3 +285,86 @@ app.use(helmet.contentSecurityPolicy({
     // Add other necessary directives here
   }
 }));
+document.getElementById('submitButton').addEventListener('click', function() {
+  sendMessage();
+});
+
+document.getElementById('user-input').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
+    e.preventDefault(); // Prevent form submission
+    sendMessage();
+  }
+});
+
+function sendMessage() {
+  const userInput = document.getElementById('user-input').value;
+  if (userInput.trim() !== '') {
+    const messages = document.getElementById('messages');
+    const newMessage = document.createElement('div');
+    newMessage.textContent = userInput;
+    messages.appendChild(newMessage);
+    document.getElementById('user-input').value = ''; // Clear input
+    messages.scrollTop = messages.scrollHeight; // Scroll to bottom
+  }
+}
+
+// Floating icon to show chat window
+document.getElementById('chatbot-icon').addEventListener('click', function() {
+  const chatContainer = document.querySelector('.card');
+  if (chatContainer.style.display === 'none') {
+    chatContainer.style.display = 'block';
+  } else {
+    chatContainer.style.display = 'none';
+  }
+});
+
+$(document).ready(function () {
+  function sendMessage() {
+      var userMessage = $("#user-input").val();
+      if (userMessage.trim() !== "") {
+          // Display user's message
+          $("#messages").append(`<div class="user-message">${userMessage}</div>`);
+          $("#user-input").val(""); // Clear the input field
+
+          // Simulate AI response after a brief delay
+          setTimeout(function () {
+              $("#messages").append(`<div class="ai-message">AI response to "${userMessage}"</div>`);
+              $("#messages").scrollTop($("#messages")[0].scrollHeight); // Auto-scroll to the bottom
+          }, 1000);
+      }
+  }
+
+  // Send message on button click
+  $("#send-btn").click(sendMessage);
+
+  // Send message on pressing Enter key
+  $("#user-input").keypress(function (e) {
+      if (e.which === 13) { // 13 is the Enter key
+          sendMessage();
+      }
+  });
+});
+
+$(document).ready(function () {
+  $('#send-btn').on('click', function () {
+      const userInput = $('#user-input').val().trim();
+      if (userInput) {
+          $('#messages').append(`<div class="user-message">${userInput}</div>`);
+          $('#user-input').val('');
+          // Call your chatbot AI or backend function here to get the AI's response
+          // Example of static AI message:
+          setTimeout(() => {
+              $('#messages').append(`<div class="ai-message">AI Response Placeholder</div>`);
+              $('#messages').scrollTop($('#messages')[0].scrollHeight); // Auto scroll
+          }, 500);
+      }
+  });
+
+  // Also trigger on "Enter" key press
+  $('#user-input').on('keypress', function (e) {
+      if (e.which == 13) {
+          $('#send-btn').click();
+      }
+  });
+});
+

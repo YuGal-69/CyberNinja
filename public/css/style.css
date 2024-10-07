@@ -613,3 +613,50 @@ body {
 .text-white {
   color: white;
 }
+/* Card container styling */
+.fixed-card {
+  height: 500px; /* Fixed height for the card */
+  width: 100%; /* Full width for responsiveness */
+  position: relative;
+  overflow-y: hidden;
+}
+
+/* Scrollable chatbox messages area */
+#messages {
+  height: 350px; /* Set the height for the scrollable area */
+  overflow-y: auto; /* Enable vertical scrolling */
+  border: 1px solid #ccc;
+  background-color: #f8f9fa;
+  padding: 10px;
+}
+
+/* Adjust form input size */
+#user-input {
+  flex: 1;
+  height: 40px; /* Set consistent height */
+}
+
+/* Floating chatbot icon */
+#chatbot-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+#chatbot-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* For mobile screens, the chatbot icon will adjust */
+@media (max-width: 768px) {
+  #chatbot-icon {
+    width: 50px;
+    height: 50px;
+  }
+}
